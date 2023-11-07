@@ -1,4 +1,5 @@
  <div class="w-7/12">
+     <livewire:tasks.tasks-count :count="$count" />
      <div class="px-6">
          @foreach ($tasks as $task)
              <div
@@ -15,5 +16,8 @@
                  </div>
              </div>
          @endforeach
+     </div>
+     <div class="mt-2 mb-12 p-2">
+         {{ $tasks->links() }}
      </div>
  </div>
