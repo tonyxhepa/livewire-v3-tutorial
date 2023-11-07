@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Tasks;
 
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -21,7 +22,10 @@ class TasksList extends Component
     {
         return view('livewire.tasks.tasks-list', [
             'tasks' => auth()->user()->tasks()->paginate(5),
-            'count' => auth()->user()->tasks()->count(),
+            'tasksByStatus' => auth()->user()->tasks()->select('status', DB::raw('COUNT(*) as count'))
+                ->groupBy('status')
+                ->orderBy('status', 'desc')
+                ->get()
         ]);
     }
 }
