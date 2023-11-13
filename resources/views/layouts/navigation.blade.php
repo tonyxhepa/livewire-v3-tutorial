@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.index')">
                         {{ __('Tasks') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('images.index')" :active="request()->routeIs('images.index')">
+                        {{ __('Images') }}
+                    </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <livewire:search />

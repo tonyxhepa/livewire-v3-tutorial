@@ -7,12 +7,13 @@ use Livewire\Component;
 
 class Search extends Component
 {
-    #[Url(as: 'q')]
+
+    #[Url]
     public $search = '';
     public function render()
     {
         $results = [];
-        if (strlen($this->search) > 2) {
+        if (strlen($this->search) > 0) {
             $results = auth()->user()->tasks()->where('title', 'like', '%' . $this->search . '%')->get();
         }
         return view('livewire.search', compact('results'));

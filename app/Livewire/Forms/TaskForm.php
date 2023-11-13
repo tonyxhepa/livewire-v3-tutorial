@@ -11,7 +11,7 @@ class TaskForm extends Form
     public $title;
     #[Rule('required|min:5')]
     public $slug;
-    #[Rule('required|min:20')]
+    #[Rule('required|min:5')]
     public $description;
     #[Rule('required')]
     public $status;
