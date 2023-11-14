@@ -7,13 +7,18 @@
             <div class="mt-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload
                     Image</label>
-                <input wire:model="photo"
+                <input wire:model="photos"
                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                    type="file">
-                @if ($photo)
-                    <img class="w-18 h-18 rounded-md" src="{{ $photo->temporaryUrl() }}">
+                    type="file" multiple>
+                @if ($photos)
+                    @foreach ($photos as $photo)
+                        <img class="w-18 h-18 rounded-md" src="{{ $photo->temporaryUrl() }}">
+                    @endforeach
                 @endif
-                @error($photo)
+                @error('photos.*')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
+                @error('photos')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>
