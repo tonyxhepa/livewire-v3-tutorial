@@ -1,6 +1,15 @@
 <div class="max-w-7xl mx-auto flex">
     <div class="w-7/12">
-        Images
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            @foreach ($this->images as $image)
+                <div class="flex flex-col justify-center items-center bg-slate-50 rounded-md p-2">
+                    <img class="h-36 w-36 rounded-lg" src="{{ $image->path }}" alt="{{ $image->name }}">
+                    <div class="mt-2">
+                        <x-primary-button wire:click="download({{ $image->id }})">Download</x-primary-button>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
     <div class="4/12">
         <form class="mt-4 bg-white p-4 rounded-md" wire:submit="save">
