@@ -10,6 +10,7 @@ class Search extends Component
 
     #[Url]
     public $search = '';
+
     public function render()
     {
         $results = [];
