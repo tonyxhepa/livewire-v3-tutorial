@@ -24,6 +24,11 @@ class TasksForm extends Component
         $task = Task::findOrFail($id);
         $this->form->setTask($task);
     }
+
+    public function refresh()
+    {
+        $this->form->reset();
+    }
     public function render()
     {
         return view('livewire.tasks.tasks-form');

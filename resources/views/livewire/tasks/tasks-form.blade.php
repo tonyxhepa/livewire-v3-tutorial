@@ -93,7 +93,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 flex justify-between">
                     <button type="submit"
                         class="flex py-2 px-4 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">Submit
                         <div wire:loading>
@@ -109,6 +109,9 @@
                             </svg>
                             <span class="sr-only">Loading...</span>
                         </div>
+                    </button>
+                    <button type="button" wire:click="refresh"
+                        class="flex py-2 px-4 bg-slate-400 hover:bg-slate-500 text-white rounded-md">Refresh
                     </button>
                 </div>
             </form>

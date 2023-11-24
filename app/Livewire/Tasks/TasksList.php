@@ -24,6 +24,7 @@ class TasksList extends Component
         $task->update([
             'status' => $status
         ]);
+        unset($this->tasksByStatus);
     }
 
     public function delete(Task $task)
